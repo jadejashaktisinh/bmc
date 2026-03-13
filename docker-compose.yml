@@ -56,7 +56,29 @@ services:
         - wordpress
       ports:
         - 3000:3000
+    
+   postgress:
+      image: postgres
+      restart: always
+      environment:
+      POSTGRES_DB: bmc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      ports:
+       - "5432:5432"
+      volumes:
+       - postgres_data:/var/lib/postgresql/data
+
+
+   server:
+      build:
+        context: ./server
+      depends_on:
+        - postgress
+      ports:
+        - 5000:5000
 
 volumes:
   db:
   wordpress:
+  postgres_data:
