@@ -24,27 +24,26 @@ services:
         WORDPRESS_DB_USER: ${MYSQL_USER}
         WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
         WORDPRESS_DB_NAME: bmc
-        
-      WORDPRESS_CONFIG_EXTRA: |
-        define('WP_HOME', 'http://bussiness-ms/admin');
-        define('WP_SITEURL', 'http://bussiness-ms/admin');
-        
-        $$proxy_path = '/admin';
-        
-        if (strpos($$_SERVER['REQUEST_URI'], $$proxy_path) !== 0) {
-            $$_SERVER['REQUEST_URI'] = $$proxy_path . $$_SERVER['REQUEST_URI'];
-        }
-        if (strpos($$_SERVER['SCRIPT_NAME'], $$proxy_path) !== 0) {
-            $$_SERVER['SCRIPT_NAME'] = $$proxy_path . $$_SERVER['SCRIPT_NAME'];
-        }
-        if (strpos($$_SERVER['PHP_SELF'], $$proxy_path) !== 0) {
-            $$_SERVER['PHP_SELF'] = $$proxy_path . $$_SERVER['PHP_SELF'];
-        }
-        
-        define('ADMIN_COOKIE_PATH', '/admin');
-        define('COOKIEPATH', '/admin');
-        define('SITECOOKIEPATH', '/admin');
-        define('COOKIE_DOMAIN', false);
+        WORDPRESS_CONFIG_EXTRA: |
+          define('WP_HOME', 'http://bussiness-ms/admin');
+          define('WP_SITEURL', 'http://bussiness-ms/admin');
+          
+          $$proxy_path = '/admin';
+          
+          if (strpos($$_SERVER['REQUEST_URI'], $$proxy_path) !== 0) {
+              $$_SERVER['REQUEST_URI'] = $$proxy_path . $$_SERVER['REQUEST_URI'];
+          }
+          if (strpos($$_SERVER['SCRIPT_NAME'], $$proxy_path) !== 0) {
+              $$_SERVER['SCRIPT_NAME'] = $$proxy_path . $$_SERVER['SCRIPT_NAME'];
+          }
+          if (strpos($$_SERVER['PHP_SELF'], $$proxy_path) !== 0) {
+              $$_SERVER['PHP_SELF'] = $$proxy_path . $$_SERVER['PHP_SELF'];
+          }
+          
+          define('ADMIN_COOKIE_PATH', '/admin');
+          define('COOKIEPATH', '/admin');
+          define('SITECOOKIEPATH', '/admin');
+          define('COOKIE_DOMAIN', false);
 
       volumes:
          - wordpress:/var/www/html
