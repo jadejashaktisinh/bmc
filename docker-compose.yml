@@ -13,7 +13,9 @@ services:
        - db:/var/lib/mysql
 
    wordpress:
-      image: wordpress
+      build:
+        context: .
+        dockerfile: Dockerfile.wordpress
       restart: always
       depends_on:
         - db
@@ -67,7 +69,7 @@ services:
       ports:
         - "5432:5432"
       volumes:
-        - postgres_data:/var/lib/postgresql/data
+        - postgres_data:/var/lib/postgresql
  
 
    server:
