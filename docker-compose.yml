@@ -6,7 +6,6 @@ services:
      command: --default-authentication-plugin=mysql_native_password
      environment:
        MYSQL_DATABASE: bmc
-       MYSQL_USER: ${MYSQL_USER}
        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
        MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
      volumes:

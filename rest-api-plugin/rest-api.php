@@ -13,7 +13,7 @@
  * @package           Rest_Api
  *
  * @wordpress-plugin
- * Plugin Name:       REST APi
+ * Plugin Name:       REST API Plugin
  * Plugin URI:        https://restapi.com
  * Description:       This is a description of the plugin.
  * Version:           1.0.0
@@ -21,7 +21,7 @@
  * Author URI:        https://bmc.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       rest-api
+ * Text Domain:       rest-api-plugin
  * Domain Path:       /languages
  */
 
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'REST_API_VERSION', '1.0.0' );
+define( 'REST_API_PLUGIN_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.

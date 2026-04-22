@@ -122,7 +122,16 @@ class Rest_Api {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-rest-api-public.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/blogs/class-blog-wp-handler.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/blogs/class-blog-rest-handler.php';
+
 		$this->loader = new Rest_Api_Loader();
+
+		$blog_wp_handler = new Rest_Api\Blogs\Blog_WP_Handler( $this->loader );
+		$blog_wp_handler->register_hooks();
+
+		$blog_rest_handler = new Rest_Api\Blogs\Blog_Rest_Handler( $this->loader );
+		$blog_rest_handler->register_hooks();
 
 	}
 

@@ -28,5 +28,5 @@ jobs:
       run: docker image prune -f
 
     - name: Sync plugin
-      run: rsync -av -e 'docker exec -i' ./rest-api bmc-wordpress-1:/var/www/html/wp-content/plugins/rest-api
+      run: rsync -av -e 'docker exec -i' ./rest-api/* bmc-wordpress-1:/var/www/html/wp-content/plugins/rest-api/
 
