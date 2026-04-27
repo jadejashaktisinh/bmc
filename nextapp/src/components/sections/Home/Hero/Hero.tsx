@@ -1,5 +1,7 @@
 import ButtonFilled from '@/components/ui/ButtonFilled/ButtonFilled'
 import ButtonIcon from '@/components/ui/ButtonIcon/ButtonIcon'
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons/faCirclePlay'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import React from 'react'
 export default function Hero() {
@@ -14,7 +16,7 @@ export default function Hero() {
             Precision-engineered for modern digital ecosystems.</p>
           <div className='flex gap-4 pt-4'>
             <ButtonFilled text='Get Started' />
-            <ButtonIcon text='Watch Demo' />
+            <ButtonIcon icon={<FontAwesomeIcon icon={faCirclePlay} />} text={"Watch Demo"} />
           </div>
         </div>
         <div
@@ -25,7 +27,7 @@ export default function Hero() {
             MozBoxShadow: '143px -145px 63px -65px rgba(0, 107, 92, 0.1), -138px 159px 63px -65px rgba(0, 11, 96, 0.1)'
           }}
         > <Image
-            src={'/Dashboard Analytics.png'}
+            src={'/Dashboard-Analytics.png'}
             alt='Dashboard Analytics'
             width={1000}
             height={1000}
