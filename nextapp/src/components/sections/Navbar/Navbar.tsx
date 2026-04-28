@@ -2,7 +2,7 @@ import ButtonClear from '@/components/ui/ButtonClear/ButtonClear'
 import ButtonFilled from '@/components/ui/ButtonFilled/ButtonFilled'
 import Link from 'next/link'
 import React from 'react'
-import NavLink from './NavLink'
+import NavLink from '../../ui/NavLink/NavLink'
 
 export default function Navbar() {
     return (
