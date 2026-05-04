@@ -26,8 +26,8 @@ export async function GetBlog(req: Request, res: Response) {
 
 export async function CreateBlog(req: Request, res: Response) {
     const { title, content, tenant_id } = req.body;
-
-    const createdBlog = await WPCreateBlog({ title, content, tenant_id });
+    const file = req.file;
+    const createdBlog = await WPCreateBlog({ title, content, tenant_id,file });
     res.status(200).json({
         success: true,
         blog: createdBlog

@@ -1,14 +1,18 @@
 import type { WPRequest } from "../@types/wp.types.js";
 
-export async function RequestWP(path: string, reqBody: any, method: string, headers: any) {
+export async function RequestWP(path: string, reqBody: any, method: string, headers: any, isFormData: boolean = false) {
 
 
     let req: WPRequest = {
         method: method
     }
 
-    if (method !== "GET") {
-        req.body = JSON.stringify(reqBody)
+
+    if (method !== "GET" && !isFormData) {
+        console.log('check 1')
+        req.body = JSON.stringify(reqBody);
+    } else if (isFormData) {
+        req.body = reqBody;
     }
 
     if (Object.keys(headers).length !== 0) {

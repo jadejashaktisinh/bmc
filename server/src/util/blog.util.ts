@@ -1,3 +1,4 @@
+import FormData from "form-data";
 import { RequestWP } from "./wp.util.js";
 
 export async function WPGetTenantBlogs(id: number) {
@@ -10,8 +11,19 @@ export async function WPGetBlog(id: number) {
     return data
 }
 
-export async function WPCreateBlog(body: { title: string, content: string, tenant_id: number }) {
-    const data = RequestWP('/rest/v1/create-blog', body, "POST", { "Content-Type": "application/json" });
+export async function WPCreateBlog(body: { title: string, content: string, tenant_id: number, file: Express.Multer.File | undefined }) {
+    const formdata = new FormData();
+    formdata.append('title', body.title);
+    formdata.append('content', body.content);
+    formdata.append('tenant_id', String(body.tenant_id));
+    if (body.file) {
+        formdata.append('file', body.file?.buffer, {
+            filename: body.file.originalname,
+            contentType: body.file.mimetype,
+        });
+    }
+
+    const data = RequestWP('/rest/v1/create-blog', body, "POST", formdata.getHeaders(),true);
     return data
 }
 
