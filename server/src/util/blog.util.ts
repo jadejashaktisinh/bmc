@@ -23,7 +23,13 @@ export async function WPCreateBlog(body: { title: string, content: string, tenan
         });
     }
 
-    const data = RequestWP('/rest/v1/create-blog', body, "POST", formdata.getHeaders(),true);
+
+    const headers = {
+        ...formdata.getHeaders(),
+        'content-length': formdata.getLengthSync().toString(), // ✅ critical
+    };
+
+    const data = await RequestWP('/rest/v1/create-blog', formdata.getBuffer(), "POST", headers, true);
     return data
 }
 

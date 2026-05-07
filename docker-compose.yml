@@ -57,6 +57,18 @@ services:
         - wordpress
       ports:
         - 3000:3000
+
+   admin-dashboard:
+      build:
+        context: ./admin-dashboard
+        target:  runner
+      depends_on:
+        - wordpress
+      ports:
+        - 4200:80
+      stdin_open: true
+      tty: true
+
     
    postgress:
       image: postgres

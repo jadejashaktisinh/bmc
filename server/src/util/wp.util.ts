@@ -6,7 +6,7 @@ export async function RequestWP(path: string, reqBody: any, method: string, head
     let req: WPRequest = {
         method: method
     }
-
+    console.log('type of body => ' , reqBody?.constructor?.name);
 
     if (method !== "GET" && !isFormData) {
         console.log('check 1')
